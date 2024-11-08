@@ -17,13 +17,16 @@ app.add_middleware(
 )
 
 class RoomCreate(BaseModel):
+    """RoomCreate"""
     room_name: str
     capacity: int
     creator_type: str
     transport_type: str  # Added transport type field
 
 class ConnectionManager:
+    """ConnectionManager"""
     def __init__(self):
+        """__init__"""
         self.active_connections: dict[str, list[WebSocket]] = {}
         self.active_users: dict[str, list[str]] = {}
         self.available_rooms: dict[str, dict] = {}
